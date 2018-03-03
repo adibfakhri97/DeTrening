@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.adibf.detrening.Daftar">
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logob" />
+
+    <EditText
+        android:id="@+id/namaLengkap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/logo"
+        android:layout_alignLeft="@+id/logo"
+        android:layout_alignRight="@+id/logo"
+        android:layout_alignStart="@+id/logo"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="29dp"
+        android:hint="Nama Lengkap"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/userDaftar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/namaLengkap"
+        android:layout_alignLeft="@+id/namaLengkap"
+        android:layout_alignRight="@+id/namaLengkap"
+        android:layout_alignStart="@+id/namaLengkap"
+        android:layout_below="@+id/namaLengkap"
+        android:hint="Username" />
+
+    <EditText
+        android:id="@+id/passwordDaftar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/userDaftar"
+        android:layout_alignLeft="@+id/userDaftar"
+        android:layout_alignRight="@+id/userDaftar"
+        android:layout_alignStart="@+id/userDaftar"
+        android:layout_below="@+id/userDaftar"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/re_passwordDaftar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/passwordDaftar"
+        android:layout_alignLeft="@+id/passwordDaftar"
+        android:layout_alignRight="@+id/passwordDaftar"
+        android:layout_alignStart="@+id/passwordDaftar"
+        android:layout_below="@+id/passwordDaftar"
+        android:hint="Re-Type Password"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/emailDaftar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/re_passwordDaftar"
+        android:layout_alignLeft="@+id/re_passwordDaftar"
+        android:layout_alignRight="@+id/re_passwordDaftar"
+        android:layout_alignStart="@+id/re_passwordDaftar"
+        android:layout_below="@+id/re_passwordDaftar"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <Button
+        android:id="@+id/Daftar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/emailDaftar"
+        android:layout_alignLeft="@+id/emailDaftar"
+        android:layout_alignRight="@+id/emailDaftar"
+        android:layout_alignStart="@+id/emailDaftar"
+        android:layout_below="@+id/emailDaftar"
+        android:layout_marginTop="32dp"
+        android:text="Daftar"
+        android:background="#CCCC00"/>
+
+    <Button
+        android:id="@+id/Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Daftar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="Login"
+        android:background="#0099FF"
+        />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>

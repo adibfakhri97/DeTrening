@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "878972168905",
+    "firebase_url": "https://detrening-f303c.firebaseio.com",
+    "project_id": "detrening-f303c",
+    "storage_bucket": "detrening-f303c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878972168905:android:a7c7d264b68670b5",
+        "android_client_info": {
+          "package_name": "com.example.adibf.detrening"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878972168905-c6o1c57e9nk54tjutq1jcob16kusilen.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.adibf.detrening",
+            "certificate_hash": "c6dcd5d00d7866ff4e209415dd607018c7e810cd"
+          }
+        },
+        {
+          "client_id": "878972168905-30h5ckvc2t16scflpb76nh4fmt0pl5pm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhjNGAS7scSAEIHB-UTVuXTSJmFvbenjY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878972168905-30h5ckvc2t16scflpb76nh4fmt0pl5pm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

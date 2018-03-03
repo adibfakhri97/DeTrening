@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DeTrening</string>
+
+    <string name="minimum">Password terlalu sedikit</string>
+</resources>
