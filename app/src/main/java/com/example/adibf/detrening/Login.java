@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -21,10 +22,9 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Login extends AppCompatActivity {
     private EditText inputEmail, inputPassword;
     private Button btnLogin, btnDaftar;
-//    private ProgressBar progressBar;
     private FirebaseAuth auth;
 
-    private ProgressDialog dialog;
+
 
 
     @Override
@@ -32,17 +32,18 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        final ProgressDialog dialog = new ProgressDialog(Login.this);
+
         auth = FirebaseAuth.getInstance();
 
         if (auth.getCurrentUser() != null){
-            startActivity(new Intent(Login.this, Beranda.class));
+            startActivity(new Intent(Login.this, MainActivity.class));
             finish();
         }
 
         setContentView(R.layout.activity_login);
         inputEmail = (EditText) findViewById(R.id.inputUsername);
         inputPassword = (EditText) findViewById(R.id.inputPassword);
-      //  progressBar = (ProgressBar) findViewById(R.id.prog);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnDaftar = (Button) findViewById(R.id.btnDaftar);
 
@@ -71,16 +72,16 @@ public class Login extends AppCompatActivity {
 
                 }
 
-               // progressBar.setVisibility(View.VISIBLE);
+                dialog.setMessage("Login...");
+                dialog.show();
+
 
                 auth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
-
-
-                         //       progressBar.setVisibility(View.GONE);
+                                dialog.dismiss();
 
                                 if (!task.isSuccessful()){
                                     if (password.length()<6){
@@ -90,7 +91,7 @@ public class Login extends AppCompatActivity {
                                     }
 
                                 } else {
-                                    Intent intent = new Intent(Login.this, Beranda.class);
+                                    Intent intent = new Intent(Login.this, MainActivity.class);
                                     startActivity(intent);
                                     
                                     finish();
@@ -99,7 +100,10 @@ public class Login extends AppCompatActivity {
                             }
                         });
 
+
             }
         });
+
     }
+
 }

@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.adibf.detrening.EditProfile">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/imageProf"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:src="@drawable/profile" />
+
+    <EditText
+        android:id="@+id/namaEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:ems="16"
+        android:layout_below="@+id/emailEdit"
+        android:layout_marginTop="14dp"
+        android:text="Namanya ini" />
+
+    <EditText
+        android:id="@+id/daftar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:ems="16"
+        android:layout_below="@+id/namaEdit"
+        android:layout_marginTop="10dp"
+        android:text="Namanya ini" />
+
+    <EditText
+        android:id="@+id/daftar3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:ems="16"
+        android:layout_below="@+id/daftar2"
+        android:layout_marginTop="10dp"
+        android:text="Namanya ini" />
+
+    <TextView
+        android:id="@+id/emailEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageProf"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:text="email@mail.com"
+        android:textColor="@android:color/black" />
+
+    <Button
+        android:id="@+id/updateEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="19dp"
+        android:layout_toEndOf="@+id/emailEdit"
+        android:layout_toRightOf="@+id/emailEdit"
+        android:text="Simpan" />
+
+</RelativeLayout>

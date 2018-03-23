@@ -1,6 +1,8 @@
 package com.example.adibf.detrening;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.renderscript.Sampler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,12 +23,9 @@ import org.w3c.dom.Text;
 
 public class Daftar extends AppCompatActivity {
 
-    private EditText inputEmail, inputPassword;
+    private EditText inputEmail, inputPassword, rePassword;
     private Button btnDaftar,btnLogin;
-    private ProgressBar progressBar;
     private FirebaseAuth auth;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +34,17 @@ public class Daftar extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+        final ProgressDialog progressDialog = new ProgressDialog(Daftar.this);
+
         inputEmail = (EditText) findViewById(R.id.emailDaftar);
         inputPassword = (EditText) findViewById(R.id.passwordDaftar);
+        rePassword = (EditText) findViewById(R.id.re_passwordDaftar);
         btnDaftar = (Button) findViewById(R.id.Daftar);
         btnLogin = (Button) findViewById(R.id.Login);
-        progressBar = (ProgressBar) findViewById(R.id.progress);
-
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent login = new Intent(Daftar.this, Login.class);
 
             }
         });
@@ -54,6 +56,7 @@ public class Daftar extends AppCompatActivity {
                 String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
 
+
                 if (TextUtils.isEmpty(email)){
                     Toast.makeText(getApplicationContext(), "Masukkan email anda", Toast.LENGTH_SHORT).show();
                     return;
@@ -64,19 +67,24 @@ public class Daftar extends AppCompatActivity {
 
                 }
 
-                progressBar.setVisibility(View.VISIBLE);
+
+                progressDialog.setMessage("Mendaftar...");
+                progressDialog.setTitle("Silakan tunggu"); //set judul progressDialog
+                progressDialog.show();
+
 
                 auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(Daftar.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(Daftar.this, "createUserWithEmail:onComplete:" +task.isSuccessful(), Toast.LENGTH_SHORT).show();
-                                progressBar.setVisibility(View.GONE);
+                                Toast.makeText(Daftar.this, "Pendaftaran berhasil", Toast.LENGTH_SHORT).show();
+
+                                progressDialog.dismiss();
 
                                 if (!task.isSuccessful()){
-                                    Toast.makeText(Daftar.this, "Gagal" +task.getException(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Daftar.this, "Gagal, gunakan email lain atau periksa koneksi anda. Gunakan password minimal 6 karakter" +task.getException(), Toast.LENGTH_SHORT).show();
                                 } else {
-                                    startActivity(new Intent(Daftar.this, Beranda.class));
+                                    startActivity(new Intent(Daftar.this, MainActivity.class));
                                     finish();
                                 }
 
@@ -89,9 +97,4 @@ public class Daftar extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onResume(){
-        super.onResume();
-        progressBar.setVisibility(View.GONE);
-    }
 }
